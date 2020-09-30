@@ -19,7 +19,6 @@ char alpha[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p
 
 string s;
 int t;
-int ar[10001][10001];
 
 int main(){
 	ios_base::sync_with_stdio(false);
@@ -27,19 +26,46 @@ int main(){
     //freopen("input.txt","r",stdin);
     //freopen("output.txt","w",stdout);
     
-    ll n;
-    cin >> n;
-    
-    for(int i=1; i<=n; i++){
+    cin >> t;
+    while(t--){
+    	ll row,col;
+    	cin >> row >> col;
     	
-    	ll ans;
+    	if(col>row){
+    		
+    		if(col&1){
+    			ll nm = col*col;
+    			nm -= (row-1);
+    			cout << nm << endl;
+			}
+			else{
+				ll nm;
+				col--;
+				nm = col*col;
+				nm++;
+				nm += (row-1);
+				cout << nm << endl;
+			}
+    		
+		}
+		else{
+			if(row&1){
+				ll nm;
+				row--;
+				nm = row*row;
+				nm++;
+				nm += (col-1);
+				cout << nm << endl;
+			}
+			else{
+				ll nm;
+				nm = row*row;
+				nm -= (col-1);
+				cout << nm << endl;
+			}
+		}
     	
-    	ans = (i*i)*((i*i)-1)/2;
-    	
-    	ans -= (4*(i-1)*(i-2));
-    	cout << ans << endl;
 	}
-    
     
 }
 

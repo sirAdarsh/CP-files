@@ -19,7 +19,6 @@ char alpha[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p
 
 string s;
 int t;
-int ar[10001][10001];
 
 int main(){
 	ios_base::sync_with_stdio(false);
@@ -27,19 +26,13 @@ int main(){
     //freopen("input.txt","r",stdin);
     //freopen("output.txt","w",stdout);
     
-    ll n;
+    int n;
     cin >> n;
-    
-    for(int i=1; i<=n; i++){
-    	
-    	ll ans;
-    	
-    	ans = (i*i)*((i*i)-1)/2;
-    	
-    	ans -= (4*(i-1)*(i-2));
-    	cout << ans << endl;
+    vector<ll> dp(n);
+    dp[n-1]=2;
+    for(int i=n-2; i>=0; i--){
+    	(dp[i]=2*dp[i+1])%=MOD;
 	}
-    
-    
+    cout << dp[0];
 }
 

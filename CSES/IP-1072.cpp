@@ -30,7 +30,7 @@ int main(){
     ll n;
     cin >> n;
     
-    for(int i=1; i<=n; i++){
+    for(ll i=1; i<=n; i++){
     	
     	ll ans;
     	
